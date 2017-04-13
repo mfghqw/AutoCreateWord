@@ -44,7 +44,8 @@ namespace CABISP.Helper
             StreamWriter sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory+"temp.html", false, Encoding.Default);
             sw.Write("<html><head></head><body>");//temp.html中没有完整的html文件标记不行，没有的话会在word中显示html tag而不是样式，预先写入模版也行  
             content = content.Replace("&amp;", "&").Replace("&lt;", "<").Replace("&gt;", ">").Replace("&nbsp;", " ").Replace("&#39;", "\\").
-                Replace("&quot;", "\"");
+                Replace("&quot;", "\"").Replace("/upload/ueditor/image", "http://zf.jaderd.com:3003/upload/ueditor/image");
+            
             sw.Write(content);
             sw.Write("</body></html>");
             sw.Close();
